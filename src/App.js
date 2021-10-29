@@ -8,6 +8,11 @@ import NotFound from './pages/NotFound/NotFound';
 import Booking from './pages/Booking/Booking';
 import AuthProvider from './context/AuthProvider';
 import Login from './pages/Login/Login';
+import About from './pages/About/About';
+import Contact from './pages/Contact/Contact';
+import PrivateRoute from './pages/PrivetRoute/PrivateRoute';
+import Order from './pages/Booking/Order/Order';
+import MyOrder from './pages/Booking/MyOrder/MyOrder';
 
 function App() {
   return (
@@ -22,8 +27,21 @@ function App() {
             <Route path='/home'>
               <Home></Home>
             </Route>
-            <Route path='/details/:id'>
+            <Route path='/about'>
+              <About></About>
+            </Route>
+            <Route path='/contact'>
+              <Contact></Contact>
+            </Route>
+            <PrivateRoute path='/booking/:id'>
               <Booking></Booking>
+            </PrivateRoute>
+            <PrivateRoute path='/order'>
+              <Order></Order>
+            </PrivateRoute>
+
+            <Route path='/myOrder'>
+              <MyOrder></MyOrder>
             </Route>
             <Route path='/login'>
               <Login></Login>

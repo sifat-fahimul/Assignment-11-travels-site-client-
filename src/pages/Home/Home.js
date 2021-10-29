@@ -1,8 +1,8 @@
-import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 import { faCalendarPlus, faCar, faCommentsDollar, faDollarSign, faHeart, faMapMarked } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
+import About from '../About/About';
 import Package from '../Package/Package';
 import './Home.css'
 
@@ -17,7 +17,7 @@ const Home = () => {
     const [packages, setPackages] = useState([]);
 
     useEffect(() => {
-        fetch('/fackdb.json')
+        fetch('http://localhost:5000/booking')
             .then(res => res.json())
             .then(data => setPackages(data))
     }, [])
@@ -129,7 +129,10 @@ const Home = () => {
                         ></Package>)
                     }
                 </div>
+                <hr />
             </div>
+
+            <About></About>
         </div>
     );
 };

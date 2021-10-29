@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Package = ({ pack }) => {
-    const { title, img, description, id } = pack;
+    const { title, img, description, _id } = pack;
 
     // const handleBookBtn=()=>{
 
@@ -17,8 +17,7 @@ const Package = ({ pack }) => {
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>{description}
                     </Card.Text>
-                    {/* <Button variant="primary">Go somewhere</Button> */}
-                    <Link to={`/booking/${id}`}><button className='btn btn-primary px-3'>Book Now</button></Link>
+                    <Link to={`/booking/${_id}`}><button className='btn btn-primary px-3'>Book Now</button></Link>
                 </Card.Body>
             </Card>
         </div>

@@ -1,0 +1,18 @@
+.banner{
+    height: 80vh;
+}
+.image-size{
+    height: 80vh;
+    background-size: cover;
+}
+.icon-style{
+    background-color:rgb(77, 77, 209);
+    /* height: 0; */
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 25px;
+    color: white;
+}
+    

@@ -10,18 +10,22 @@ const DeleteUpdate = () => {
     }, [])
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/delete/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount) {
-                    alert('Deleted Successfully')
-                    const remaining = trips.filter(trip => trip._id !== id);
-                    setTrips(remaining)
-                }
+        const proceed = window.confirm('are you sure to delete this item')
+        if (proceed) {
+            const url = `http://localhost:5000/delete/${id}`;
+            fetch(url, {
+                method: 'DELETE'
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        alert('Deleted Successfully')
+                        const remaining = trips.filter(trip => trip._id !== id);
+                        setTrips(remaining)
+                    }
+                })
+        }
+
     }
 
     return (

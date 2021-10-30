@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory, } from 'react-router';
+import { useHistory, useParams, } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 
 const Order = () => {
-
+    const { id } = useParams()
+    const [order, setOrder] = useState([])
     const history = useHistory()
     const { user } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    useEffect(() => {
+        fetch(`http://localhost:5000/booking/${id}`)
+            .then(res => res.json())
+            .then(data => setOrder(data))
+    }, [id])
+
     const onSubmit = data => {
         fetch(`http://localhost:5000/orders`, {
             method: 'POST',
@@ -21,30 +28,44 @@ const Order = () => {
                 if (result.insertedId) {
                     alert('Order place Successfully');
                     reset()
-                    history.push('/')
+                    history.push('/trip')
                 }
             })
     };
+    const img = order.img;
     return (
         <div className='container'>
             <div className="row py-5 my-5 ">
-                <div className="col-2"></div>
-                <div className="col-8 my-4 border p-4">
+                <div className="col-lg-6 col-12 my-4 border p-4 text-center">
+                    <div><img className='w-75 mb-4' src={order.img} alt="" /></div>
+                    <h1>{order.title}</h1>
+                </div>
+                <div className="col-lg-6 col-12 my-4 border p-4">
                     <h1 className='text-center'>Give your Details For Booking</h1>
                     <div>
                         <form className='shipping-form text-center' onSubmit={handleSubmit(onSubmit)}>
-                            <input placeholder='Name' defaultValue={user.displayName} {...register("name")} /> <br /><br />
-                            <input placeholder='Email' defaultValue={user.email} {...register("email", { required: true })} /><br /><br />
-                            {errors.email && <span className='error'>This field is required</span>}
-                            <input placeholder='Address' defaultValue="" {...register("address")} /><br /><br />
-                            <input placeholder='City' defaultValue="" {...register("city")} /><br /><br />
-                            <input placeholder='Phone' defaultValue="" {...register("phone")} /><br /><br />
+                            <div className="row">
+                                <div className='col-lg-6'>
+                                    <input placeholder='Name' defaultValue={user.displayName} {...register("name")} /> <br /><br />
+                                    <input placeholder='Email' defaultValue={user.email} {...register("email", { required: true })} /><br /><br />
+                                    {errors.email && <span className='error'>This field is required</span>}
+                                    <input placeholder='Address' defaultValue="" {...register("address")} /><br /><br />
+                                    <input placeholder='City' defaultValue="" {...register("city")} /><br /><br />
+                                    <input placeholder='Phone' defaultValue="" {...register("phone")} /><br /><br />
+                                </div>
+                                <div className='col-lg-6'>
+                                    <h3>Trip Details</h3>
+                                    <input Value={order.title} {...register("title")} /> <br /><br />
+                                    <input Value={img} {...register("img")} /> <br /><br />
+                                    <input Value={order.description} {...register("description")} /> <br /><br />
+
+                                </div>
+                            </div>
 
                             <input type="submit" />
                         </form>
                     </div>
                 </div>
-                <div className="col-2"></div>
             </div>
         </div>
     );

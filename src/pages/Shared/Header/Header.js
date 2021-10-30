@@ -19,7 +19,9 @@ const Header = () => {
                         <Link className='text-decoration-none text-white px-3' to='/'><p>Home</p></Link>
                         <Link className='text-decoration-none text-white px-3' to='/contact'><p>Contacts Us</p></Link>
                         <Link className='text-decoration-none text-white px-3' to='/about'><p>About</p></Link>
-                        {user.email && <Link className='text-decoration-none text-white px-3' to='/myOrder'><p>My Order</p></Link>}
+                        {user.email && <Link className='text-decoration-none text-white px-3' to='/trip'><p>My Order</p></Link>}
+                        {user.email && <Link className='text-decoration-none text-white px-3' to='/addTrip'><p>Add Trip</p></Link>}
+                        {user.email && <Link className='text-decoration-none text-white px-3' to='/manage'><p>Manage Trip</p></Link>}
                         <Navbar.Text>
                             <p className='text-white me-4'> <span className='text-danger'>{userIcon}</span> {user.displayName} </p>
                         </Navbar.Text>

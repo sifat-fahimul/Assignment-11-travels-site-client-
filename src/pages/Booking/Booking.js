@@ -17,7 +17,7 @@ const Booking = () => {
                 <h1>{details.title}</h1>
                 <div><img className='w-75' src={details.img} alt="" /></div>
                 <p>{details.description}</p>
-                <Link to='/order'><button className='btn btn-outline-primary px-4'>Book Now</button></Link>
+                <Link to={`/order/${id}`}><button className='btn btn-outline-primary px-4'>Book Now</button></Link>
             </div>
         </div>
     );

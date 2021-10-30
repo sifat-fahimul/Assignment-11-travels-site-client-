@@ -1,11 +1,11 @@
-import { faClinicMedical, faLocationArrow, faMapMarkedAlt, faPhoneAlt, faUserMd } from '@fortawesome/free-solid-svg-icons';
+import { faClinicMedical, faMapMarkedAlt, faPhoneAlt, } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Form } from 'react-bootstrap';
 import './Contact.css'
 
 const Contact = () => {
-    const doctorIcon = <FontAwesomeIcon icon={faMapMarkedAlt}></FontAwesomeIcon>
+    const mapIcon = <FontAwesomeIcon icon={faMapMarkedAlt}></FontAwesomeIcon>
     const phoneIcon = <FontAwesomeIcon icon={faPhoneAlt}></FontAwesomeIcon>
     const medicalIcon = <FontAwesomeIcon icon={faClinicMedical}></FontAwesomeIcon>
     return (
@@ -45,7 +45,7 @@ const Contact = () => {
                             <small>+1555 6761 020</small>
                         </div>
                         <div className='my-4'>
-                            <span className='contact-circle text-white fs-1 text-center' >{doctorIcon}</span>
+                            <span className='contact-circle text-white fs-1 text-center' >{mapIcon}</span>
                             <h5 className='mt-4'> VISIT OFFICE</h5>
                             <small>WE ARE ONLINE  24/7  </small><br />
                             <small>DHAKA 1200, BANGLADESH</small>

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 
-const MyOrder = () => {
+const DeleteUpdate = () => {
     const [trips, setTrips] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/trip')
             .then(res => res.json())
             .then(data => setTrips(data))
     }, [])
+
     const handleDelete = id => {
         const url = `http://localhost:5000/delete/${id}`;
         fetch(url, {
@@ -22,11 +23,12 @@ const MyOrder = () => {
                 }
             })
     }
+
     return (
         <div className='container py-5 my-5 text-center'>
-            <h1>My Trips</h1>
+            <h1>manage Trip</h1>
             <div className=" my-5">
-                <div className='row' >
+                <div className='row'>
                     {
                         trips.map(trip => <div key={trip._id} className="col-lg-3 col-md-6 col-12" >
                             <Card style={{ width: '18rem' }}>
@@ -36,6 +38,7 @@ const MyOrder = () => {
                                     <Card.Text>{trip.description}
                                     </Card.Text>
                                     <button onClick={() => handleDelete(trip._id)} className='btn btn-danger px-4 me-4'>Delete</button>
+                                    <button className='btn btn-success px-4 ms-4'>Update</button>
                                 </Card.Body>
                             </Card>
 
@@ -48,4 +51,4 @@ const MyOrder = () => {
     );
 };
 
-export default MyOrder;
+export default DeleteUpdate;

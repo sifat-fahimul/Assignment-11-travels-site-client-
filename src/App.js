@@ -13,6 +13,8 @@ import Contact from './pages/Contact/Contact';
 import PrivateRoute from './pages/PrivetRoute/PrivateRoute';
 import Order from './pages/Booking/Order/Order';
 import MyOrder from './pages/Booking/MyOrder/MyOrder';
+import AddTrip from './pages/Admin/AddTrip/AddTrip';
+import DeleteUpdate from './pages/Admin/DeleteUpdate/DeleteUpdate';
 
 function App() {
   return (
@@ -39,8 +41,14 @@ function App() {
             <PrivateRoute path='/order'>
               <Order></Order>
             </PrivateRoute>
+            <PrivateRoute path='/addTrip'>
+              <AddTrip></AddTrip>
+            </PrivateRoute>
+            <PrivateRoute path='/manage'>
+              <DeleteUpdate></DeleteUpdate>
+            </PrivateRoute>
 
-            <Route path='/myOrder'>
+            <Route path='/trip'>
               <MyOrder></MyOrder>
             </Route>
             <Route path='/login'>

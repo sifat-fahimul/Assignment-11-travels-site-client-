@@ -124,7 +124,7 @@ const Home = () => {
                     <h1 className='text-center'>Popular Packages</h1>
                     {
                         packages.map(pack => <Package
-                            key={pack.id}
+                            key={pack._id}
                             pack={pack}
                         ></Package>)
                     }

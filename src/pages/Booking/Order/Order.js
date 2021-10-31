@@ -47,7 +47,7 @@ const Order = () => {
                             <div className="row">
                                 <div className='col-lg-6'>
                                     <input placeholder='Name' defaultValue={user.displayName} {...register("name")} /> <br /><br />
-                                    <input placeholder='Email' defaultValue={user.email} {...register("email", { required: true })} /><br /><br />
+                                    <input placeholder='Email' defaultValue={user.email} {...register("email", {})} /><br /><br />
                                     {errors.email && <span className='error'>This field is required</span>}
                                     <input placeholder='Address' defaultValue="" {...register("address")} /><br /><br />
                                     <input placeholder='City' defaultValue="" {...register("city")} /><br /><br />
@@ -55,9 +55,9 @@ const Order = () => {
                                 </div>
                                 <div className='col-lg-6'>
                                     <h3>Trip Details</h3>
-                                    <input Value={order.title} {...register("title")} /> <br /><br />
-                                    <input Value={img} {...register("img")} /> <br /><br />
-                                    <input Value={order.description} {...register("description")} /> <br /><br />
+                                    <input defaultValue={order.title} {...register("title")} /> <br /><br />
+                                    <input defaultValue={img} {...register("img")} /> <br /><br />
+                                    <input defaultValue={order.description} {...register("description")} /> <br /><br />
 
                                 </div>
                             </div>

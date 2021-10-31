@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap';
 
 const DeleteUpdate = () => {
     const [trips, setTrips] = useState([])
+    console.log(trips);
     useEffect(() => {
         fetch('http://localhost:5000/trip')
             .then(res => res.json())
@@ -38,6 +39,8 @@ const DeleteUpdate = () => {
                             <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={trip.img} />
                                 <Card.Body>
+                                    <h4>Name :{trip.name}</h4>
+                                    <p>Email : {trip.email}</p>
                                     <Card.Title>{trip.title}</Card.Title>
                                     <Card.Text>{trip.description}
                                     </Card.Text>

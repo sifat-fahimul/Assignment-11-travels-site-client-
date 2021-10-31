@@ -4,7 +4,6 @@ import './MyOrder.css'
 
 const MyOrder = () => {
     const [trips, setTrips] = useState([])
-    console.log(trips);
     useEffect(() => {
         fetch('https://still-garden-06650.herokuapp.com/orders')
             .then(res => res.json())

@@ -16,6 +16,7 @@ const Order = () => {
     }, [id])
 
     const onSubmit = data => {
+        console.log(data);
         fetch(`https://still-garden-06650.herokuapp.com/orders`, {
             method: 'POST',
             headers: {

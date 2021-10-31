@@ -12,7 +12,7 @@ const Footer = () => {
     return (
         <div className='footer-container'>
             <div className="container">
-                <div className="py-5 row">
+                <div className="py-5 row text-center">
                     <div className="col-lg-4 col-md-6 col-12 p-4">
                         <h4 className='text-white'>This is Ural Travels</h4>
                         <p className='gray'>Ural Travels is equipped with everythig required for an amazing campground business website. Set up camp now.</p>

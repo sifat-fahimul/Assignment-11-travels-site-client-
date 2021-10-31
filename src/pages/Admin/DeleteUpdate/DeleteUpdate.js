@@ -3,7 +3,6 @@ import { Card } from 'react-bootstrap';
 
 const DeleteUpdate = () => {
     const [trips, setTrips] = useState([])
-    console.log(trips);
     useEffect(() => {
         fetch('https://still-garden-06650.herokuapp.com/trip')
             .then(res => res.json())

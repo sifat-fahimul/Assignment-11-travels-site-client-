@@ -16,7 +16,6 @@ const Order = () => {
     }, [id])
 
     const onSubmit = data => {
-        console.log(data);
         fetch(`https://still-garden-06650.herokuapp.com/orders`, {
             method: 'POST',
             headers: {
@@ -56,10 +55,12 @@ const Order = () => {
                                 </div>
                                 <div className='col-lg-6'>
                                     <h3>Trip Details</h3>
-                                    <input defaultValue={order.title} {...register("title")} /> <br /><br />
-                                    <input defaultValue={img} {...register("img")} /> <br /><br />
-                                    <input defaultValue={order.description} {...register("description")} /> <br /><br />
+                                    {order.title && <div>
+                                        <input defaultValue={order.title} {...register("title")} /> <br /><br />
+                                        <input defaultValue={img} {...register("img")} /> <br /><br />
+                                        <input defaultValue={order.description} {...register("description")} /> <br /><br />
 
+                                    </div>}
                                 </div>
                             </div>
 

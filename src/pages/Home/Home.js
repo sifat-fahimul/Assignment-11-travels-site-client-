@@ -17,7 +17,7 @@ const Home = () => {
     const [packages, setPackages] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/booking')
+        fetch('https://still-garden-06650.herokuapp.com/booking')
             .then(res => res.json())
             .then(data => setPackages(data))
     }, [])

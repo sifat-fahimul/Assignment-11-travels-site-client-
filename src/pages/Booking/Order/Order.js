@@ -10,13 +10,13 @@ const Order = () => {
     const { user } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     useEffect(() => {
-        fetch(`http://localhost:5000/booking/${id}`)
+        fetch(`https://still-garden-06650.herokuapp.com/booking/${id}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [id])
 
     const onSubmit = data => {
-        fetch(`http://localhost:5000/orders`, {
+        fetch(`https://still-garden-06650.herokuapp.com/orders`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

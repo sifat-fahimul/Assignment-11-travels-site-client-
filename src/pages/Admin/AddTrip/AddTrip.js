@@ -6,7 +6,7 @@ import './AddTrip.css'
 const AddTrip = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/booking', data)
+        axios.post('https://still-garden-06650.herokuapp.com/booking', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('add service successfully !');

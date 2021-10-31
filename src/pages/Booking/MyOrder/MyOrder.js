@@ -6,14 +6,14 @@ const MyOrder = () => {
     const [trips, setTrips] = useState([])
     console.log(trips);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://still-garden-06650.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setTrips(data))
     }, [])
     const handleDelete = id => {
         const proceed = window.confirm('are you sure to delete this item')
         if (proceed) {
-            const url = `http://localhost:5000/delete/${id}`;
+            const url = `https://still-garden-06650.herokuapp.com/delete/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
